@@ -90,6 +90,12 @@ Desktop uygulaması sezgisel bir arayüz sunar:
 - "Ekle" butonu ile yeni görev oluşturma
 - Çift tıklama ile görev düzenleme
 - Sağ tık menüsü ile hızlı işlemler
+<img width="879" height="556" alt="Ekran görüntüsü 2025-09-29 020629" src="https://github.com/user-attachments/assets/9a1b3819-3f73-487b-9a92-c550e77ed9cc" />
+<img width="577" height="485" alt="Ekran görüntüsü 2025-09-29 020658" src="https://github.com/user-attachments/assets/52557cb1-ddec-4db9-bb20-8cd212531780" />
+<img width="881" height="566" alt="Ekran görüntüsü 2025-09-29 021222" src="https://github.com/user-attachments/assets/f4c783ca-b171-4aff-8b5b-d7425242c200" />
+<img width="870" height="556" alt="Ekran görüntüsü 2025-09-29 021243" src="https://github.com/user-attachments/assets/6c3c4bf5-792e-4a1e-9a66-17b625debb54" />
+
+  
 
 ## 📁 Proje Yapısı
 
