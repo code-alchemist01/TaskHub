@@ -17,3 +17,4 @@ C:\Users\excalibur\Desktop\Projeler\C# project\TaskMaster.CLI\obj\Debug\net9.0\r
 C:\Users\excalibur\Desktop\Projeler\C# project\TaskMaster.CLI\obj\Debug\net9.0\TaskMaster.CLI.pdb
 C:\Users\excalibur\Desktop\Projeler\C# project\TaskMaster.CLI\obj\Debug\net9.0\TaskMaster.CLI.genruntimeconfig.cache
 C:\Users\excalibur\Desktop\Projeler\C# project\TaskMaster.CLI\obj\Debug\net9.0\ref\TaskMaster.CLI.dll
+C:\Users\excalibur\Desktop\Projeler\C# project\TaskMaster.CLI\obj\Debug\net9.0\TaskMaster.CLI.sourcelink.json

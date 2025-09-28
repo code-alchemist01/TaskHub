@@ -25,3 +25,4 @@ C:\Users\excalibur\Desktop\Projeler\C# project\TaskMaster.Desktop\obj\Debug\net9
 C:\Users\excalibur\Desktop\Projeler\C# project\TaskMaster.Desktop\obj\Debug\net9.0-windows\TaskMaster.Desktop.pdb
 C:\Users\excalibur\Desktop\Projeler\C# project\TaskMaster.Desktop\obj\Debug\net9.0-windows\TaskMaster.Desktop.genruntimeconfig.cache
 C:\Users\excalibur\Desktop\Projeler\C# project\TaskMaster.Desktop\obj\Debug\net9.0-windows\ref\TaskMaster.Desktop.dll
+C:\Users\excalibur\Desktop\Projeler\C# project\TaskMaster.Desktop\obj\Debug\net9.0-windows\TaskMaster.Desktop.sourcelink.json

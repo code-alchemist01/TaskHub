@@ -9,3 +9,4 @@ C:\Users\excalibur\Desktop\Projeler\C# project\TaskMaster.Core\obj\Debug\net9.0\
 C:\Users\excalibur\Desktop\Projeler\C# project\TaskMaster.Core\obj\Debug\net9.0\refint\TaskMaster.Core.dll
 C:\Users\excalibur\Desktop\Projeler\C# project\TaskMaster.Core\obj\Debug\net9.0\TaskMaster.Core.pdb
 C:\Users\excalibur\Desktop\Projeler\C# project\TaskMaster.Core\obj\Debug\net9.0\ref\TaskMaster.Core.dll
+C:\Users\excalibur\Desktop\Projeler\C# project\TaskMaster.Core\obj\Debug\net9.0\TaskMaster.Core.sourcelink.json

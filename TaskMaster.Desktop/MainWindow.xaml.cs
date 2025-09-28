@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using TaskMaster.Core.Models;
 using TaskMaster.Core.Services;
 using TaskMaster.Desktop.Models;
@@ -26,7 +27,111 @@ namespace TaskMaster.Desktop
             
             DgTasks.ItemsSource = _filteredTasks;
             
+            // Keyboard shortcuts için KeyDown event'ini dinle
+            this.KeyDown += MainWindow_KeyDown;
             Loaded += MainWindow_Loaded;
+        }
+
+        private async void MainWindow_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Ctrl+N - Yeni görev ekle
+            if (e.Key == Key.N && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                e.Handled = true;
+                await ExecuteAddTask();
+            }
+            // F5 - Yenile
+            else if (e.Key == Key.F5)
+            {
+                e.Handled = true;
+                await LoadTasksAsync();
+            }
+            // Ctrl+F - Arama kutusuna odaklan
+            else if (e.Key == Key.F && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                e.Handled = true;
+                TxtSearch.Focus();
+            }
+        }
+
+        private async void DgTasks_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            // Delete - Seçili görevi sil
+            if (e.Key == Key.Delete)
+            {
+                e.Handled = true;
+                await ExecuteDeleteSelectedTask();
+            }
+            // Ctrl+Enter - Seçili görevi tamamla
+            else if (e.Key == Key.Enter && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                e.Handled = true;
+                await ExecuteCompleteSelectedTask();
+            }
+        }
+
+        private async Task ExecuteAddTask()
+        {
+            var addWindow = new AddEditTaskWindow();
+            if (addWindow.ShowDialog() == true)
+            {
+                await LoadTasksAsync();
+            }
+        }
+
+        private async Task ExecuteDeleteSelectedTask()
+        {
+            if (DgTasks.SelectedItem is TaskItemViewModel selectedTask)
+            {
+                var result = MessageBox.Show(
+                    $"'{selectedTask.Title}' görevini silmek istediğinizden emin misiniz?",
+                    "Görevi Sil",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    try
+                    {
+                        await _taskService.DeleteTaskAsync(selectedTask.Id);
+                        await LoadTasksAsync();
+                        TxtStatus.Text = $"Görev #{selectedTask.Id} silindi";
+                    }
+                    catch (Exception ex)
+                    {
+                        ShowUserFriendlyError($"Görev silinirken hata oluştu.\n\nTeknik detay: {ex.Message}", "Silme Hatası");
+                    }
+                }
+            }
+            else
+            {
+                ShowUserFriendlyError("Lütfen silmek istediğiniz görevi seçin.", "Görev Seçilmedi");
+            }
+        }
+
+        private async Task ExecuteCompleteSelectedTask()
+        {
+            if (DgTasks.SelectedItem is TaskItemViewModel selectedTask)
+            {
+                try
+                {
+                    var task = selectedTask.Task;
+                    task.Status = TaskMaster.Core.Models.TaskStatus.Completed;
+                    
+                    await _taskService.UpdateTaskAsync(task);
+                    await LoadTasksAsync();
+                    
+                    TxtStatus.Text = $"Görev #{task.Id} tamamlandı olarak işaretlendi";
+                }
+                catch (Exception ex)
+                {
+                    ShowUserFriendlyError($"Görev güncellenirken hata oluştu.\n\nTeknik detay: {ex.Message}", "Güncelleme Hatası");
+                }
+            }
+            else
+            {
+                ShowUserFriendlyError("Lütfen tamamlamak istediğiniz görevi seçin.", "Görev Seçilmedi");
+            }
         }
 
         private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -52,14 +157,33 @@ namespace TaskMaster.Desktop
                 UpdateTaskCount();
                 TxtStatus.Text = "Hazır";
             }
+            catch (UnauthorizedAccessException)
+            {
+                ShowUserFriendlyError("Veri dosyasına erişim izni yok. Lütfen uygulamayı yönetici olarak çalıştırın.", "Erişim Hatası");
+                TxtStatus.Text = "Erişim hatası";
+            }
+            catch (System.IO.IOException)
+            {
+                ShowUserFriendlyError("Veri dosyası okunamıyor. Dosya başka bir program tarafından kullanılıyor olabilir.", "Dosya Hatası");
+                TxtStatus.Text = "Dosya hatası";
+            }
+            catch (System.Text.Json.JsonException)
+            {
+                ShowUserFriendlyError("Veri dosyası bozuk. Yedek dosyadan geri yükleme yapılacak.", "Veri Hatası");
+                TxtStatus.Text = "Veri hatası - yedekten yükleniyor";
+                // Burada yedek dosyadan yükleme mantığı eklenebilir
+            }
             catch (Exception ex)
             {
-                MessageBox.Show($"Görevler yüklenirken hata oluştu: {ex.Message}", 
-                              "Hata", MessageBoxButton.OK, MessageBoxImage.Error);
-                TxtStatus.Text = "Hata oluştu";
+                ShowUserFriendlyError($"Beklenmeyen bir hata oluştu. Lütfen uygulamayı yeniden başlatın.\n\nTeknik detay: {ex.Message}", "Sistem Hatası");
+                TxtStatus.Text = "Sistem hatası";
             }
         }
 
+        private void ShowUserFriendlyError(string message, string title)
+        {
+            MessageBox.Show(message, title, MessageBoxButton.OK, MessageBoxImage.Warning);
+        }
         private void ApplyFilters()
         {
             var filtered = _tasks.AsEnumerable();
@@ -194,10 +318,17 @@ namespace TaskMaster.Desktop
                     
                     TxtStatus.Text = $"Görev #{task.Id} tamamlandı olarak işaretlendi";
                 }
+                catch (UnauthorizedAccessException)
+                {
+                    ShowUserFriendlyError("Görev güncellenirken erişim hatası oluştu. Lütfen uygulamayı yönetici olarak çalıştırın.", "Erişim Hatası");
+                }
+                catch (System.IO.IOException)
+                {
+                    ShowUserFriendlyError("Görev güncellenirken dosya hatası oluştu. Dosya başka bir program tarafından kullanılıyor olabilir.", "Dosya Hatası");
+                }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Görev güncellenirken hata oluştu: {ex.Message}", 
-                                  "Hata", MessageBoxButton.OK, MessageBoxImage.Error);
+                    ShowUserFriendlyError($"Görev güncellenirken beklenmeyen bir hata oluştu.\n\nTeknik detay: {ex.Message}", "Güncelleme Hatası");
                 }
             }
         }
@@ -221,10 +352,17 @@ namespace TaskMaster.Desktop
                         
                         TxtStatus.Text = $"Görev #{taskViewModel.Id} silindi";
                     }
+                    catch (UnauthorizedAccessException)
+                    {
+                        ShowUserFriendlyError("Görev silinirken erişim hatası oluştu. Lütfen uygulamayı yönetici olarak çalıştırın.", "Erişim Hatası");
+                    }
+                    catch (System.IO.IOException)
+                    {
+                        ShowUserFriendlyError("Görev silinirken dosya hatası oluştu. Dosya başka bir program tarafından kullanılıyor olabilir.", "Dosya Hatası");
+                    }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Görev silinirken hata oluştu: {ex.Message}", 
-                                      "Hata", MessageBoxButton.OK, MessageBoxImage.Error);
+                        ShowUserFriendlyError($"Görev silinirken beklenmeyen bir hata oluştu.\n\nTeknik detay: {ex.Message}", "Silme Hatası");
                     }
                 }
             }
