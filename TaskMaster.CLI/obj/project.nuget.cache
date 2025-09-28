@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xIWg4zVUCLg=",
+  "dgSpecHash": "UBD+95EaZlk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\excalibur\\Desktop\\Projeler\\C# project\\TaskMaster.CLI\\TaskMaster.CLI.csproj",
+  "projectFilePath": "C:\\Users\\excalibur\\Desktop\\TaskHub\\TaskMaster.CLI\\TaskMaster.CLI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\excalibur\\.nuget\\packages\\commandlineparser\\2.9.1\\commandlineparser.2.9.1.nupkg.sha512"
   ],

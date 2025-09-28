@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\excalibur\\Desktop\\Projeler\\C# project\\TaskMaster.Core\\TaskMaster.Core.csproj": {}
+    "C:\\Users\\excalibur\\Desktop\\TaskHub\\TaskMaster.Core\\TaskMaster.Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\excalibur\\Desktop\\Projeler\\C# project\\TaskMaster.Core\\TaskMaster.Core.csproj": {
+    "C:\\Users\\excalibur\\Desktop\\TaskHub\\TaskMaster.Core\\TaskMaster.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\excalibur\\Desktop\\Projeler\\C# project\\TaskMaster.Core\\TaskMaster.Core.csproj",
+        "projectUniqueName": "C:\\Users\\excalibur\\Desktop\\TaskHub\\TaskMaster.Core\\TaskMaster.Core.csproj",
         "projectName": "TaskMaster.Core",
-        "projectPath": "C:\\Users\\excalibur\\Desktop\\Projeler\\C# project\\TaskMaster.Core\\TaskMaster.Core.csproj",
+        "projectPath": "C:\\Users\\excalibur\\Desktop\\TaskHub\\TaskMaster.Core\\TaskMaster.Core.csproj",
         "packagesPath": "C:\\Users\\excalibur\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\excalibur\\Desktop\\Projeler\\C# project\\TaskMaster.Core\\obj\\",
+        "outputPath": "C:\\Users\\excalibur\\Desktop\\TaskHub\\TaskMaster.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\excalibur\\AppData\\Roaming\\NuGet\\NuGet.Config"

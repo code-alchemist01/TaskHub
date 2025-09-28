@@ -68,11 +68,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\excalibur\\Desktop\\Projeler\\C# project\\TaskMaster.CLI\\TaskMaster.CLI.csproj",
+      "projectUniqueName": "C:\\Users\\excalibur\\Desktop\\TaskHub\\TaskMaster.CLI\\TaskMaster.CLI.csproj",
       "projectName": "TaskMaster.CLI",
-      "projectPath": "C:\\Users\\excalibur\\Desktop\\Projeler\\C# project\\TaskMaster.CLI\\TaskMaster.CLI.csproj",
+      "projectPath": "C:\\Users\\excalibur\\Desktop\\TaskHub\\TaskMaster.CLI\\TaskMaster.CLI.csproj",
       "packagesPath": "C:\\Users\\excalibur\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\excalibur\\Desktop\\Projeler\\C# project\\TaskMaster.CLI\\obj\\",
+      "outputPath": "C:\\Users\\excalibur\\Desktop\\TaskHub\\TaskMaster.CLI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\excalibur\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -87,8 +87,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\excalibur\\Desktop\\Projeler\\C# project\\TaskMaster.Core\\TaskMaster.Core.csproj": {
-              "projectPath": "C:\\Users\\excalibur\\Desktop\\Projeler\\C# project\\TaskMaster.Core\\TaskMaster.Core.csproj"
+            "C:\\Users\\excalibur\\Desktop\\TaskHub\\TaskMaster.Core\\TaskMaster.Core.csproj": {
+              "projectPath": "C:\\Users\\excalibur\\Desktop\\TaskHub\\TaskMaster.Core\\TaskMaster.Core.csproj"
             }
           }
         }

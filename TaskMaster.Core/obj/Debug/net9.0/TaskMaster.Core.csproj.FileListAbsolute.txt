@@ -10,3 +10,15 @@ C:\Users\excalibur\Desktop\Projeler\C# project\TaskMaster.Core\obj\Debug\net9.0\
 C:\Users\excalibur\Desktop\Projeler\C# project\TaskMaster.Core\obj\Debug\net9.0\TaskMaster.Core.pdb
 C:\Users\excalibur\Desktop\Projeler\C# project\TaskMaster.Core\obj\Debug\net9.0\ref\TaskMaster.Core.dll
 C:\Users\excalibur\Desktop\Projeler\C# project\TaskMaster.Core\obj\Debug\net9.0\TaskMaster.Core.sourcelink.json
+C:\Users\excalibur\Desktop\TaskHub\TaskMaster.Core\bin\Debug\net9.0\TaskMaster.Core.deps.json
+C:\Users\excalibur\Desktop\TaskHub\TaskMaster.Core\bin\Debug\net9.0\TaskMaster.Core.dll
+C:\Users\excalibur\Desktop\TaskHub\TaskMaster.Core\bin\Debug\net9.0\TaskMaster.Core.pdb
+C:\Users\excalibur\Desktop\TaskHub\TaskMaster.Core\obj\Debug\net9.0\TaskMaster.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\excalibur\Desktop\TaskHub\TaskMaster.Core\obj\Debug\net9.0\TaskMaster.Core.AssemblyInfoInputs.cache
+C:\Users\excalibur\Desktop\TaskHub\TaskMaster.Core\obj\Debug\net9.0\TaskMaster.Core.AssemblyInfo.cs
+C:\Users\excalibur\Desktop\TaskHub\TaskMaster.Core\obj\Debug\net9.0\TaskMaster.Core.csproj.CoreCompileInputs.cache
+C:\Users\excalibur\Desktop\TaskHub\TaskMaster.Core\obj\Debug\net9.0\TaskMaster.Core.sourcelink.json
+C:\Users\excalibur\Desktop\TaskHub\TaskMaster.Core\obj\Debug\net9.0\TaskMaster.Core.dll
+C:\Users\excalibur\Desktop\TaskHub\TaskMaster.Core\obj\Debug\net9.0\refint\TaskMaster.Core.dll
+C:\Users\excalibur\Desktop\TaskHub\TaskMaster.Core\obj\Debug\net9.0\TaskMaster.Core.pdb
+C:\Users\excalibur\Desktop\TaskHub\TaskMaster.Core\obj\Debug\net9.0\ref\TaskMaster.Core.dll

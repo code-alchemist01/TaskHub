@@ -37,11 +37,22 @@ namespace TaskMaster.Core.Services
 
         public Task<TaskItem> CreateTaskAsync(TaskItem task)
         {
+            // Debug: Log the task creation attempt
+            System.Diagnostics.Debug.WriteLine($"Creating task: {task.Title}");
+            
             task.Id = _nextId++;
             task.CreatedAt = DateTime.Now;
             task.UpdatedAt = DateTime.Now;
             _tasks.Add(task);
+            
+            // Debug: Log the task list count before saving
+            System.Diagnostics.Debug.WriteLine($"Task added to list. Total tasks: {_tasks.Count}");
+            
             SaveData();
+            
+            // Debug: Confirm task creation
+            System.Diagnostics.Debug.WriteLine($"Task created successfully with ID: {task.Id}");
+            
             return Task.FromResult(task);
         }
 
@@ -206,10 +217,15 @@ namespace TaskMaster.Core.Services
                 });
 
                 File.WriteAllText(_dataFilePath, json);
+                
+                // Debug: Verify the file was written
+                System.Diagnostics.Debug.WriteLine($"Data saved successfully. Tasks count: {_tasks.Count}, File: {_dataFilePath}");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                // Silently fail if we can't save
+                // Log the error and rethrow to make it visible
+                System.Diagnostics.Debug.WriteLine($"SaveData failed: {ex.Message}");
+                throw new InvalidOperationException($"Veri kaydedilemedi: {ex.Message}", ex);
             }
         }
 
