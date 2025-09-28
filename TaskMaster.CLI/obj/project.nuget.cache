@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "xIWg4zVUCLg=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\excalibur\\Desktop\\Projeler\\C# project\\TaskMaster.CLI\\TaskMaster.CLI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\excalibur\\.nuget\\packages\\commandlineparser\\2.9.1\\commandlineparser.2.9.1.nupkg.sha512"
+  ],
+  "logs": []
+}

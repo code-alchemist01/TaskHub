@@ -1,0 +1,131 @@
+<Window x:Class="TaskMaster.Desktop.Windows.AddEditTaskWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Görev Ekle/Düzenle" Height="500" Width="600"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize">
+    
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Margin" Value="0,5,0,2"/>
+        </Style>
+        
+        <Style TargetType="TextBox">
+            <Setter Property="Padding" Value="8"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="#CCCCCC"/>
+            <Setter Property="Margin" Value="0,0,0,10"/>
+        </Style>
+        
+        <Style TargetType="ComboBox">
+            <Setter Property="Padding" Value="8"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="#CCCCCC"/>
+            <Setter Property="Margin" Value="0,0,0,10"/>
+        </Style>
+        
+        <Style TargetType="DatePicker">
+            <Setter Property="Padding" Value="8"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="#CCCCCC"/>
+            <Setter Property="Margin" Value="0,0,0,10"/>
+        </Style>
+        
+        <Style TargetType="Button">
+            <Setter Property="Padding" Value="15,8"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+        </Style>
+        
+        <Style x:Key="PrimaryButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="Background" Value="#007ACC"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#005A9B"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        
+        <Style x:Key="SecondaryButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="Background" Value="#F0F0F0"/>
+            <Setter Property="Foreground" Value="#333333"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#E0E0E0"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <!-- Header -->
+        <TextBlock Grid.Row="0" x:Name="TxtHeader" Text="Yeni Görev Ekle" 
+                   FontSize="20" FontWeight="Bold" Margin="0,0,0,20"/>
+        
+        <!-- Form -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <!-- Title -->
+                <Label Content="Başlık *"/>
+                <TextBox x:Name="TxtTitle" MaxLength="200"/>
+                
+                <!-- Description -->
+                <Label Content="Açıklama"/>
+                <TextBox x:Name="TxtDescription" Height="80" TextWrapping="Wrap" 
+                         AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
+                
+                <!-- Priority -->
+                <Label Content="Öncelik"/>
+                <ComboBox x:Name="CmbPriority">
+                    <ComboBoxItem Content="Düşük" Tag="Low"/>
+                    <ComboBoxItem Content="Orta" Tag="Medium" IsSelected="True"/>
+                    <ComboBoxItem Content="Yüksek" Tag="High"/>
+                    <ComboBoxItem Content="Kritik" Tag="Critical"/>
+                </ComboBox>
+                
+                <!-- Status (only for edit mode) -->
+                <Label x:Name="LblStatus" Content="Durum" Visibility="Collapsed"/>
+                <ComboBox x:Name="CmbStatus" Visibility="Collapsed">
+                    <ComboBoxItem Content="Bekliyor" Tag="Pending"/>
+                    <ComboBoxItem Content="Devam Ediyor" Tag="InProgress"/>
+                    <ComboBoxItem Content="Tamamlandı" Tag="Completed"/>
+                    <ComboBoxItem Content="İptal Edildi" Tag="Cancelled"/>
+                </ComboBox>
+                
+                <!-- Due Date -->
+                <Label Content="Bitiş Tarihi"/>
+                <DatePicker x:Name="DpDueDate"/>
+                
+                <!-- Tags -->
+                <Label Content="Etiketler (virgülle ayırın)"/>
+                <TextBox x:Name="TxtTags" 
+                         ToolTip="Etiketleri virgülle ayırarak girin (örn: iş, acil, proje)"/>
+                
+                <!-- Validation Message -->
+                <TextBlock x:Name="TxtValidation" Foreground="Red" 
+                           Visibility="Collapsed" Margin="0,10"/>
+            </StackPanel>
+        </ScrollViewer>
+        
+        <!-- Buttons -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" 
+                    HorizontalAlignment="Right" Margin="0,20,0,0">
+            <Button x:Name="BtnSave" Content="Kaydet" 
+                    Style="{StaticResource PrimaryButton}" 
+                    Click="BtnSave_Click"/>
+            <Button x:Name="BtnCancel" Content="İptal" 
+                    Style="{StaticResource SecondaryButton}" 
+                    Click="BtnCancel_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,98 @@
+{
+  "version": 3,
+  "targets": {
+    "net9.0-windows7.0": {
+      "TaskMaster.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/TaskMaster.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TaskMaster.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TaskMaster.Core/1.0.0": {
+      "type": "project",
+      "path": "../TaskMaster.Core/TaskMaster.Core.csproj",
+      "msbuildProject": "../TaskMaster.Core/TaskMaster.Core.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net9.0-windows7.0": [
+      "TaskMaster.Core >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\excalibur\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\excalibur\\Desktop\\Projeler\\C# project\\TaskMaster.Desktop\\TaskMaster.Desktop.csproj",
+      "projectName": "TaskMaster.Desktop",
+      "projectPath": "C:\\Users\\excalibur\\Desktop\\Projeler\\C# project\\TaskMaster.Desktop\\TaskMaster.Desktop.csproj",
+      "packagesPath": "C:\\Users\\excalibur\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\excalibur\\Desktop\\Projeler\\C# project\\TaskMaster.Desktop\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\excalibur\\AppData\\Roaming\\NuGet\\NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net9.0-windows"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net9.0-windows7.0": {
+          "targetAlias": "net9.0-windows",
+          "projectReferences": {
+            "C:\\Users\\excalibur\\Desktop\\Projeler\\C# project\\TaskMaster.Core\\TaskMaster.Core.csproj": {
+              "projectPath": "C:\\Users\\excalibur\\Desktop\\Projeler\\C# project\\TaskMaster.Core\\TaskMaster.Core.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "9.0.300"
+    },
+    "frameworks": {
+      "net9.0-windows7.0": {
+        "targetAlias": "net9.0-windows",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          },
+          "Microsoft.WindowsDesktop.App.WPF": {
+            "privateAssets": "none"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
